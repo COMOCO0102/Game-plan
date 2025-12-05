@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 地圖容器樣式：用於縮放和邊界 */
+#map-container {
+    /* 確保初始邊界是黑色的 */
+    border: 5px solid black; 
+    transition: transform 0.2s, border 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: grab; /* 讓使用者知道可以操作 */
+}
+
+/* 遊戲網格樣式 */
+#grid {
+    display: grid;
+    /* 根據 GRID_SIZE=10 設定 10x10 網格 */
+    grid-template-columns: repeat(10, 50px); 
+    grid-template-rows: repeat(10, 50px);
+    width: 500px;
+    height: 500px;
+}
+
+/* 基礎格子樣式 */
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* 確保 border 不會增加格子大小 */
+    background-color: #ffffff; /* 白色背景 */
+}
+
+/* 各種格子顏色 */
+.red {
+    background-color: #ff4d4d; /* 紅色 */
+}
+
+.blue {
+    background-color: #4d4dff; /* 藍色 */
+}
+
+.black {
+    background-color: #333333; /* 黑色 */
+}
+
+/* 邊界變紅的視覺回饋樣式 */
+/* 使用 !important 確保樣式覆蓋初始的 border: 5px solid black; */
+.border-top-touched {
+    border-top: 5px solid red !important; 
+}
+.border-bottom-touched {
+    border-bottom: 5px solid red !important;
+}
+.border-left-touched {
+    border-left: 5px solid red !important;
+}
+.border-right-touched {
+    border-right: 5px solid red !important;
+}
+
+/* style.css */
+#timer-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0000; /* 紅色，提醒玩家時間壓力 */
+    margin-bottom: 10px;
+    height: 30px; /* 預留空間，防止內容跳動 */
+    text-align: center;
+}
